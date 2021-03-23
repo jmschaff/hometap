@@ -3,7 +3,7 @@ from django import forms
 
 class PropertyRegistrationForm(forms.Form):
     address = forms.CharField(label='Street address', max_length=100)
-    zipcode = forms.CharField(label='Zip Code', max_length=100)
+    zipcode = forms.CharField(label='Zip code', max_length=100)
 
 
 class SepticPropertyRegistrationForm(forms.Form):
