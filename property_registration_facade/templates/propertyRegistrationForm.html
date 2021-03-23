@@ -1,0 +1,27 @@
+<h1>Property Registration</h1>
+<h2>Instructions</h2>
+<ol>
+  <li>
+    Start up Postman Mock Server which is used by property_data_provider, in
+    place to mock housecanary, to retrieve property details.
+  </li>
+  <li>
+    Once the server is running, update the get_propert_details example body with
+    the proper request for your manual test:
+  </li>
+  <ul>
+    <li>
+      200_not_septic.json will result in a thank you for registering your
+      property.
+    </li>
+    <li>200_septic.json will prompt the user for additional questions.</li>
+    <li>
+      500_not_found.json will indicate that the provided location is not
+      currently supported.
+    </li>
+  </ul>
+</ol>
+<form action="/property_registration" method="post">
+  {% csrf_token %} {{ form }}
+  <input type="submit" value="Submit" />
+</form>

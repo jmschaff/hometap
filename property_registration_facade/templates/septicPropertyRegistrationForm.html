@@ -1,0 +1,9 @@
+<h1>Property Registration</h1>
+<h2>
+  Hi, we noticed your property has a septic sewer system. Please fill in some
+  additional information.
+</h2>
+<form action="/septic_property_registration" method="post">
+  {% csrf_token %} {{ form }}
+  <input type="submit" value="Submit" />
+</form>
