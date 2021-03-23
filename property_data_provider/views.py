@@ -18,18 +18,11 @@ class PropertyView(APIView):
 
     def get(self, request):
         try:
-            if "address" in request.data:
-                address = request.data["address"]
-            else:
-                raise ValidationError(
-                    "Missing address field from request body.")
-            if "zipcode" in request.data:
-                zipcode = request.data["zipcode"]
-            else:
-                raise ValidationError(
-                    "Missing zipcode field from request body.")
+            getPropertyRequestSerializer = GetPropertyRequestSerializer()
+            getPropertyRequestSerializer.validate(request.data)
             propertyClient = PropertyClient('v2')
-            property = propertyClient.get_property_details(address, zipcode)
+            property = propertyClient.get_property_details(
+                request.data["address"], request.data["zipcode"])
             serializer = PropertySerializer(property)
             return Response(serializer.data)
         except ValidationError:

@@ -29,7 +29,6 @@ class PropertyClient:
                                self.oauth_secret, signature_type='auth_header')
 
     def __get_data(self, url):
-        print(url)
         self.__create_auth()
         r = requests.get(url, auth=self.auth)
         response = r.json()
