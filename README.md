@@ -40,11 +40,11 @@ Additonally, a mock server was spun up via postman with some examples that are s
    ```
 2. Create virtual env
    ```sh
-   python3 -m venv .
+   python3 -m venv env
    ```
 3. Activate virtual env
    ```sh
-   source venv/bin/activate
+   source env/bin/activate
    ```
 5. Install depedencies
    ```sh

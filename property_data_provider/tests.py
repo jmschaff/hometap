@@ -143,6 +143,5 @@ class PropertyTests(APITestCase):
         })
         resp = self.client.generic(method="GET", path="/property/", data=json.dumps({"address": address,
                                                                                      "zipcode": zipcode}), content_type='application/json')
-        print(resp.data)
         assert resp.status_code == 500
         assert "property not found" in resp.data['detail']
